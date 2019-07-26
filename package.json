@@ -1,0 +1,16 @@
+{
+  "name": "chat-with-mongo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple chat app using sockets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Alpha Olomi",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.2.7",
+    "socket.io": "^2.2.0"
+  }
+}
