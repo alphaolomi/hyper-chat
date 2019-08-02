@@ -46,8 +46,6 @@ app.use(function (error, req, res, next) {
         status: 500,
         message: 'Whoops! Something went wrong.'
     };
-    // res.status(error.status).render('error', (0, _objectSpread2["default"])({}, error));
-
     res.status(error.status).render('error', {error: error});
 });
 

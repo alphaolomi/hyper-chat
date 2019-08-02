@@ -2,7 +2,7 @@
   "name": "chat-with-mongo",
   "version": "0.0.1",
   "private": true,
-  "main": "server.js",
+  "main": "node ./bin/www",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alphaolomi/idea-in-node"
+    "url": "https://github.com/alphaolomi/chat-with-node"
   },
   "author": "Alpha Olomi",
   "license": "ISC",
