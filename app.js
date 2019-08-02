@@ -10,7 +10,7 @@ const apiRoutes = require('./routes/api');
 const webRoutes = require('./routes/web');
 
 
-const app = express();
+const app = require('express')();
 app.disable('x-powered-by');
 
 if (app.get('env') === 'test') {

@@ -1,75 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <% include partials/header.ejs %>
+  <title>MongoChat</title>
+  <style>
+    #messages {
+      height: 300px;
+    }
+  </style>
 </head>
 
 <body>
 
   <% include partials/nav.ejs %>
 
-  <div class="jumbotron text-center">
-    <div class="container">
-      <a href="/" class="lang-logo">
-        <img src="/logo.png">
-      </a>
-      <h1>Getting Started with Node on Heroku</h1>
-      <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for
-        understanding how to get the most out of the Heroku platform.</p>
-      <a type="button" class="btn btn-lg btn-default"
-        href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span
-          class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-      <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span
-          class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-    </div>
-  </div>
+
+
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-        <ul>
-          <li>This app was deployed to Heroku, either using Git or by using <a
-              href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
+      <div class="col-md-6 offset-md-3 col-sm-12">
+        <h1 class="text-center">
+          MongoChat
+          <button id="clear" class="btn btn-danger ml-3 btn-sm">Clear</button>
+        </h1>
+        <div id="status"></div>
+        <div id="chat">
+          <input type="text" id="username" class="form-control" placeholder="Enter name...">
+          <br>
+          <div class="card">
+            <div id="messages" class="card-block">
 
-          <li>When Heroku received the source code, it fetched all the dependencies in the <a
-              href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>,
-            creating a deployable slug.</li>
-          <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which
-            the slug can be mounted and executed.</li>
-          <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on
-              services</a>, from the Dashboard or CLI.</li>
-        </ul>
+            </div>
+          </div>
+          <br>
+          <textarea id="textarea" class="form-control" placeholder="Enter message..."></textarea>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-        <ul>
-          <li>If you are following the <a
-              href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then
-            please head back to the tutorial and follow the next steps!</li>
-          <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-          <ul>
-            <li><code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local
-              copy of the source code for the app</li>
-            <li><code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-            <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-            <li>You'll now be set up to run the app locally, or <a
-                href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy
-                changes</a> to Heroku</li>
-          </ul>
-        </ul>
-        <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-        <ul>
-          <li><a href="https://www.heroku.com/home">Heroku</a></li>
-          <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-          <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on
-              Heroku</a></li>
-          <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-        </ul>
-      </div>
-    </div> <!-- row -->
-
+    </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+  <script>
+    (function () {
+      const element = function (id) {
+        return document.getElementById(id);
+      };
+
+      // Get Elements
+      const status = element('status');
+      const messages = element('messages');
+      const textarea = element('textarea');
+      const username = element('username');
+      const clearBtn = element('clear');
+
+      // Set default status
+      const statusDefault = status.textContent;
+
+      const setStatus = function (s) {
+        // Set status
+        status.textContent = s;
+
+        if (s !== statusDefault) {
+          const delay = setTimeout(function () {
+            setStatus(statusDefault);
+          }, 4000);
+        }
+      };
+
+      // Connect to socket.io
+      const socket = io.connect('http://127.0.0.1:4000');
+
+      // Check for connection
+      if (socket !== undefined) {
+        console.log('Connected to socket...');
+
+        // Handle Output
+        socket.on('output', function (data) {
+          //console.log(data);
+          if (data.length) {
+            for (let x = 0; x < data.length; x++) {
+              // Build out message div
+              const message = document.createElement('div');
+              message.setAttribute('class', 'chat-message');
+              message.textContent = data[x].name + ": " + data[x].message;
+              messages.appendChild(message);
+              messages.insertBefore(message, messages.firstChild);
+            }
+          }
+        });
+
+        // Get Status From Server
+        socket.on('status', function (data) {
+          // get message status
+          setStatus((typeof data === 'object') ? data.message : data);
+
+          // If status is clear, clear text
+          if (data.clear) {
+            textarea.value = '';
+          }
+        });
+
+        // Handle Input
+        textarea.addEventListener('keydown', function (event) {
+          if (event.which === 13 && event.shiftKey === false) {
+            // Emit to server input
+            socket.emit('input', {
+              name: username.value,
+              message: textarea.value
+            });
+
+            event.preventDefault();
+          }
+        });
+
+        // Handle Chat Clear
+        clearBtn.addEventListener('click', function () {
+          socket.emit('clear');
+        });
+
+        // Clear Message
+        socket.on('cleared', function () {
+          messages.textContent = '';
+        });
+      }
+
+    })();
+  </script>
 
 
 </body>
