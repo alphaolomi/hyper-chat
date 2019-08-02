@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const app = require('../app');
-const debug = require('debug');
+const debug = require('debug')('www');
 const http = require('http');
+const mongo = require('mongodb').MongoClient;
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -13,25 +14,14 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-
-
 function normalizePort(val) {
   const port = parseInt(val, 10);
-
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
-
   if (port >= 0) {
-    // port number
     return port;
   }
-
   return false;
 }
 
@@ -41,8 +31,8 @@ function onError(error) {
   }
 
   const bind = typeof port === 'string'
-      ? 'Pipe ' + port
-      : 'Port ' + port;
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -62,7 +52,59 @@ function onError(error) {
 function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string'
-      ? 'pipe ' + addr
-      : 'port ' + addr.port;
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+const DB_URL = process.env.DB_URL || "mongodb://localhost:27017/";
+const DB_NAME = process.env.DB_NAME || "mongochat";
+const DB_COLLECTION = process.env.DB_NAME || "chats";
+
+// noinspection JSIgnoredPromiseFromCall
+mongo.connect(DB_URL, {useNewUrlParser: true}, function (err, db) {
+  if (err) throw err;
+  console.log('MongoDB connected...');
+
+
+  io.on('connection', function (socket) {
+    const dbo = db.db(DB_NAME);
+    const chat = dbo.collection(DB_COLLECTION);
+
+    let sendStatus = function (s) {
+      socket.emit('status', s);
+    };
+
+    chat.find().limit(100).sort({_id: 1}).toArray(function (err, res) {
+      if (err) throw err;
+      socket.emit('output', res);
+    });
+
+
+    socket.on('input', function (data) {
+      let name = data.name;
+      let message = data.message;
+      if (name === '' || message === '') {
+        sendStatus('Please enter a name and message');
+      } else {
+        chat.insertOne({name: name, message: message}, function () {
+          io.emit('output', [data]);
+          sendStatus({
+            message: 'Message sent',
+            clear: true
+          });
+        });
+      }
+    });
+
+    socket.on('clear', function (data) {
+      let deleteOne = chat.deleteOne({}, function () {
+        socket.emit('cleared');
+      });
+    });
+
+  });
+
+
+});

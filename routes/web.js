@@ -6,9 +6,9 @@ const homeController = require("../controllers/home");
 
 const router = express.Router();
 
-router.get('/', homeController.index);
+router.get('/', homeController.welcome);
 router.get('/home', homeController.show);
-router.get('/welcome', homeController.welcome);
+router.get('/welcome', homeController.index);
 
 router.get('/login', loginController.showLoginForm);
 router.post('/login', loginController.login);

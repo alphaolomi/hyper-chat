@@ -13,11 +13,7 @@
 
 <body>
 
-  <% include partials/nav.ejs %>
-
-
-
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
       <div class="col-md-6 offset-md-3 col-sm-12">
         <h1 class="text-center">
@@ -70,7 +66,7 @@
       };
 
       // Connect to socket.io
-      const socket = io.connect('http://127.0.0.1:4000');
+      const socket = io.connect('http://127.0.0.1:3000');
 
       // Check for connection
       if (socket !== undefined) {
