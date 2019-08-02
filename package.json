@@ -33,7 +33,7 @@
   "author": "Alpha Olomi",
   "license": "ISC",
   "devDependencies": {
-    "debug": "latest",
+    "debug": "^4.1.1",
     "nodemon": "^1.19.1"
   }
 }
