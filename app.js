@@ -1,21 +1,20 @@
-import path from 'path';
-import express from 'express';
-import env from 'node-env-file';
-import logger from 'morgan';
-import nunjucks from 'nunjucks';
-import bodyParser from 'body-parser';
-import session from 'express-session';
-import passport from 'passport';
+const express = require('express');
+const env = require('node-env-file');
+const session = require('express-session');
+const createError = require('http-errors');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-import apiRoutes from './routes/api';
-import webRoutes from './routes/web';
+const apiRoutes = require('./routes/api');
+const webRoutes = require('./routes/web');
 
 
 const app = express();
 app.disable('x-powered-by');
 
 if (app.get('env') === 'test') {
-    env(path.join(__dirname, './../.env.test'));
+    env(path.join(__dirname, './.env.test'));
 } else if (app.get('env') === 'local') {
     env(path.join(__dirname, './../.env'));
 }
@@ -33,16 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
 
 
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use('/api/v1/', apiRoutes);
 app.use('/', webRoutes);
 
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    next(createError(404));
 });
 
 app.use((error, req, res, next) => {
@@ -50,4 +44,4 @@ app.use((error, req, res, next) => {
     res.status(error.status).render('error', { ...error });
 });
 
-export default app;
+module.exports = app;

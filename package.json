@@ -2,15 +2,36 @@
   "name": "chat-with-mongo",
   "version": "0.0.1",
   "private": true,
-  "description": "A simple chat app using sockets",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node ./bin/www",
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "http-errors": "^1.7.3",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.7",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.9.1",
+    "node-env-file": "^0.1.8",
+    "socket.io": "^2.2.0",
+    "validator": "^11.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alphaolomi/idea-in-node"
   },
   "author": "Alpha Olomi",
   "license": "ISC",
-  "dependencies": {
-    "mongodb": "^3.2.7",
-    "socket.io": "^2.2.0"
+  "devDependencies": {
+    "debug": "latest"
   }
 }

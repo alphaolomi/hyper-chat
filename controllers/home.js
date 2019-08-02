@@ -29,6 +29,9 @@ async function show(request, response) {
     }
 }
 
-export default show;
-exports.welcome = welcome;
-exports.index = index;
+// export default show;
+// module.exports = show;
+module.exports.show = show;
+module.exports.welcome = welcome;
+module.exports.index = index;
+

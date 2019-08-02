@@ -1,11 +1,12 @@
-var express = require("express");
+const express = require("express");
 
-var api = require("./api");
-var web = require("./web");
+const api = require("./api");
+const web = require("./web");
 
-var router = express.Router();
-router.use(web["default"]);
-router.use(api["default"]);
+const router = express.Router();
+
+router.use(web);
+router.use(api);
 
 
-exports["default"] = router;
+module.exports = router;
