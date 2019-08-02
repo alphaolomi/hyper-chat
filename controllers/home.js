@@ -9,7 +9,7 @@ async function welcome(request, response, next) {
 
 async function index(request, response, next) {
     try {
-        return response.status(200).type('html').render('index');
+        return response.status(200).type('html').render('index', {title: 'Express'});
     } catch (error) {
         next(error);
     }
@@ -18,7 +18,7 @@ async function index(request, response, next) {
 
 async function show(request, response) {
     try {
-        var user = {
+        const user = {
             id: '1234',
             email: 'user@example.com',
             password: 'password'
@@ -29,8 +29,7 @@ async function show(request, response) {
     }
 }
 
-// export default show;
-// module.exports = show;
+
 module.exports.show = show;
 module.exports.welcome = welcome;
 module.exports.index = index;

@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "test": "node test.js"
   },
   "engines": {
@@ -32,6 +33,7 @@
   "author": "Alpha Olomi",
   "license": "ISC",
   "devDependencies": {
-    "debug": "latest"
+    "debug": "latest",
+    "nodemon": "^1.19.1"
   }
 }

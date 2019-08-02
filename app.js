@@ -19,7 +19,6 @@ if (app.get('env') === 'test') {
     env(path.join(__dirname, './../.env'));
 }
 
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -35,13 +34,21 @@ app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
 app.use('/api/v1/', apiRoutes);
 app.use('/', webRoutes);
 
-app.use((req, res, next) => {
-    next(createError(404));
+
+app.use(function (req, res, next) {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-app.use((error, req, res, next) => {
-    if (!error.status) error = { status: 500, message: 'Whoops! Something went wrong.' }
-    res.status(error.status).render('error', { ...error });
+app.use(function (error, req, res, next) {
+    if (!error.status) error = {
+        status: 500,
+        message: 'Whoops! Something went wrong.'
+    };
+    // res.status(error.status).render('error', (0, _objectSpread2["default"])({}, error));
+
+    res.status(error.status).render('error', { error: error });
 });
 
 module.exports = app;

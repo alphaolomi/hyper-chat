@@ -1,9 +1,9 @@
 // const User = require("../models/user");
-//
-// async function showRegistrationForm(request, response) {
-//     return response.status(200).type('html').render('register');
-// }
-//
+
+async function showRegistrationForm(request, response) {
+    return response.status(200).type('html').render('register');
+}
+
 // async function registerUser(request, response, next) {
 //     try {
 //         await User.create(request.body);
@@ -12,6 +12,6 @@
 //         next({status: 500, message: error.message});
 //     }
 // }
-//
-// module.exports.showRegistrationForm = showRegistrationForm;
+
+module.exports.showRegistrationForm = showRegistrationForm;
 // module.exports.registerUser = registerUser;
