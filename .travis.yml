@@ -1,0 +1,6 @@
+language: node_js
+
+services: mongodb
+
+before_script:
+  cp .env.test.example .env.test

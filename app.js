@@ -22,13 +22,13 @@ if (app.get('env') === 'test') {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev', { skip: () => app.get('env') !== 'local' }));
+app.use(logger('dev', {skip: () => app.get('env') !== 'local'}));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
+app.use(session({secret: 'secret', resave: true, saveUninitialized: true}));
 
 
 app.use('/api/v1/', apiRoutes);
@@ -48,7 +48,7 @@ app.use(function (error, req, res, next) {
     };
     // res.status(error.status).render('error', (0, _objectSpread2["default"])({}, error));
 
-    res.status(error.status).render('error', { error: error });
+    res.status(error.status).render('error', {error: error});
 });
 
 module.exports = app;
