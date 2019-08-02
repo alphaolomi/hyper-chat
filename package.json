@@ -1,8 +1,8 @@
 {
   "name": "chat-with-mongo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
-  "description": "Simple chat app using sockets",
+  "description": "A simple chat app using sockets",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

@@ -2,7 +2,7 @@ const mongo = require('mongodb').MongoClient;
 const client = require('socket.io').listen(4000).sockets;
 
 // Connect to mongo
-const url = "mongodb://localhost:27017/mongochat";
+const url = "mongodb://localhost:27017/";
 mongo.connect(url, { useNewUrlParser: true }, function (err, db) {
     if (err) {
         throw err;
@@ -12,7 +12,8 @@ mongo.connect(url, { useNewUrlParser: true }, function (err, db) {
 
     // Connect to Socket.io
     client.on('connection', function (socket) {
-        let chat = db.collection('chats');
+        const dbo = db.db("mongochat");
+        const chat = dbo.collection('chats');
 
         // Create function to send status
         sendStatus = function (s) {
@@ -40,7 +41,7 @@ mongo.connect(url, { useNewUrlParser: true }, function (err, db) {
                 sendStatus('Please enter a name and message');
             } else {
                 // Insert message
-                chat.insert({ name: name, message: message }, function () {
+                chat.insertOne({ name: name, message: message }, function () {
                     client.emit('output', [data]);
 
                     // Send status object
