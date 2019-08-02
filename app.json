@@ -2,6 +2,5 @@
   "name": "chat-with-mongo",
   "description": "",
   "repository": "https://github.com/alphaolomi/chat-with-mongo",
-  "logo": "https://cdn.rawgit.com/alphaolomi/chat-with-mongo/master/public/node.svg",
   "image": "heroku/nodejs"
 }

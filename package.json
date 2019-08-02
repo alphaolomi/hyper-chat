@@ -9,7 +9,7 @@
     "test": "node test.js"
   },
   "engines": {
-    "node": "10.x",
+    "node": "10.x"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -19,7 +19,7 @@
     "express-session": "^1.16.2",
     "http-errors": "^1.7.3",
     "mongodb": "^3.2.7",
-    "mongoose": "^5.6.7",
+    "mongoose": "^5.6.8",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.9.1",
     "node-env-file": "^0.1.8",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alphaolomi/chat-with-node"
+    "url": "https://github.com/alphaolomi/chat-with-mongo"
   },
   "author": "Alpha Olomi",
   "license": "ISC",
