@@ -1,6 +1,6 @@
 {
   "name": "chat-with-mongo",
-  "description": "",
+  "description": "A simple chat application baked with Node and MongoDb",
   "repository": "https://github.com/alphaolomi/chat-with-mongo",
   "image": "heroku/nodejs"
 }
