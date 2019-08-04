@@ -5,7 +5,6 @@
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>
   <a href="#"><img src="https://travis-ci.com/alphaolomi/todo-in-vue.svg?branch=master" alt="Build Status"></a>
-  <a href="https://app.netlify.com/sites/todo-in-vue1/deploys"><img src="https://api.netlify.com/api/v1/badges/7ca6f399-d08d-488f-b9b3-199650cd87d0/deploy-status" alt="Netlify Status"></a>
 </p>
 
 ###  Progress
