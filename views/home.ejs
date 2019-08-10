@@ -7,6 +7,10 @@
   <style>
     #messages {
       height: 300px;
+
+      overflow-y: scroll;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
     }
   </style>
 </head>
@@ -26,7 +30,6 @@
           <br>
           <div class="card">
             <div id="messages" class="card-block">
-
             </div>
           </div>
           <br>
@@ -80,6 +83,7 @@
               // Build out message div
               const message = document.createElement('div');
               message.setAttribute('class', 'chat-message');
+              message.setAttribute('class', 'font-weight-light shadow p-1 m-2 bg-white rounded');
               message.textContent = data[x].name + ": " + data[x].message;
               messages.appendChild(message);
               messages.insertBefore(message, messages.firstChild);
