@@ -3,19 +3,20 @@
 
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/alphaolomi/chat-with-mongo?style=flat-square">
   <a href="#"><img src="https://travis-ci.com/alphaolomi/todo-in-vue.svg?branch=master" alt="Build Status"></a>
 </p>
 
-###  Progress
+###  🚧Progress
 
-Chat Mono is in development right now, Wanna check out sure!! [link]().
+Chat Mono is in development right now, Check it out at  [https://chat-in-mongo.herokuapp.com/](https://chat-in-mongo.herokuapp.com/).
 
-### Status
+### 🏁Status
 
 In development v.0.0.2
 
-## Quick Start
+## 🚀Quick Start
 
 ```bash
 # Git clone
@@ -37,9 +38,9 @@ npm start
 npm run test
 ```
 
-## Author
+## 😎 Author
 
 Alpha Olomi [hello@alphaolomi.com](mailto:hello@alphaolomi.com)
 
-## License
+## 📄 License
 MIT License
