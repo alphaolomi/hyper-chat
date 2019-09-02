@@ -1,16 +1,15 @@
-<h1 align="center">Chat with Mongo 💬</h1>
+<h1 align="center">Chat IO 💬</h1>
 <p align="center">A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express. Made with ❤️ in Tanzania.</p>
 
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square"></a>
-  <img alt="GitHub" src="https://img.shields.io/github/license/alphaolomi/chat-with-mongo?style=flat-square">
+  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square"></a>  
   <a href="#"><img src="https://travis-ci.com/alphaolomi/todo-in-vue.svg?branch=master" alt="Build Status"></a>
 </p>
 
 ###  🚧Progress
 
-Chat Mono is in development right now, Check it out at  [https://chat-in-mongo.herokuapp.com/](https://chat-in-mongo.herokuapp.com/).
+Chat IO is in development right now, Check it out at  [https://chat-in-mongo.herokuapp.com/](https://chat-in-mongo.herokuapp.com/).
 
 ### 🏁Status
 
@@ -40,7 +39,7 @@ npm run test
 
 ## 😎 Author
 
-Alpha Olomi [hello@alphaolomi.com](mailto:hello@alphaolomi.com)
+**Alpha Olomi** <[hello@alphaolomi.com](mailto:hello@alphaolomi.com)>
 
 ## 📄 License
 MIT License
