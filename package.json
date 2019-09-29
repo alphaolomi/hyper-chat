@@ -35,6 +35,6 @@
   "author": "Alpha Olomi",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "1.19.2"
+    "nodemon": "1.19.3"
   }
 }
