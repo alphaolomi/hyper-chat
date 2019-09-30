@@ -20,7 +20,7 @@
     "express-session": "1.16.2",
     "http-errors": "1.7.3",
     "mongodb": "3.3.2",
-    "mongoose": "5.7.1",
+    "mongoose": "5.7.3",
     "mongoose-unique-validator": "2.0.3",
     "morgan": "1.9.1",
     "node-env-file": "0.1.8",
