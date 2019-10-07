@@ -1,4 +1,4 @@
-# Chat IO 💬
+# HyperChat 💬
 
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
