@@ -1,11 +1,11 @@
-<h1 align="center">Chat IO 💬</h1>
-<p align="center">A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express. Made with ❤️ in Tanzania.</p>
+# Chat IO 💬
+
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Maintain ][ico-maintain]][link-repo]
 
 
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square"></a>  
-  <a href="#"><img src="https://travis-ci.com/alphaolomi/todo-in-vue.svg?branch=master" alt="Build Status"></a>
-</p>
+A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.
 
 ###  🚧Progress
 
@@ -13,33 +13,73 @@ Chat IO is in development right now, Check it out at  [https://chat-in-mongo.her
 
 ### 🏁Status
 
-In development v.0.0.2
+In development v.0.0.3
 
 ## 🚀Quick Start
 
+- Git clone
 ```bash
-# Git clone
-git clone https://github.com/alphaolomi/chat-in-mongo
-
-# Copy 
-cp .env.example .env
- 
-# Install dependencies
-npm install
-
-# Serve on localhost:3000
-npm run dev
-
-# Run for production
-npm start
-
-# Run tests
-npm run test
+git clone https://github.com/alphaolomi/chat
 ```
 
-## 😎 Author
+- Copy 
+```
+cp .env.example .env
+# add MongoURI in .env
+ ```
+ - Install dependencies
+```bash
+npm install
+```
 
-**Alpha Olomi** <[hello@alphaolomi.com](mailto:hello@alphaolomi.com)>
+- Serve on localhost:3000
+```bash
+npm run dev
+```
 
-## 📄 License
-MIT License
+- Run for production
+```
+npm start
+```
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+
+## Testing
+
+```bash
+$ yarn run test
+```
+
+## Contributing
+
+Pull requests are welcome. Please see [CONTRIBUTING](./.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](./.github/CODE_OF_CONDUCT.md) for details.
+
+
+## Security
+
+If you discover any security related issues, please email [hello@alphaolomi.com](mailto:hello@alphaolomi.com) instead of using the issue tracker.
+
+## Credits
+
+- **Alpha Olomi** [hello@alphaolomi.com](hello@alphaolomi.com)
+- [All Contributors][link-contributors]
+
+## License
+The Apache 2 License. Please see [License File](LICENSE) for more information.
+
+
+
+
+
+[ico-license]: https://img.shields.io/badge/license-Apache2-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/alphaolomi/todo-in-vue/master.svg?style=flat-square
+[ico-maintain]: https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square
+
+[link-travis]: https://travis-ci.org/alphaolomi/wazo
+
+[link-repo]: https://github.com/alphaolomi/forum
+[link-author]: https://github.com/alphaolomi
+[link-contributors]: ../../contributors
