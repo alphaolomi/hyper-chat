@@ -99,7 +99,7 @@ mongo.connect(DB_URL, {useNewUrlParser: true}, function (err, db) {
     });
 
     socket.on('clear', function (data) {
-      let deleteOne = chat.deleteOne({}, function () {
+      let deleteMany = chat.deleteMany({}, function () {
         socket.emit('cleared');
       });
     });
