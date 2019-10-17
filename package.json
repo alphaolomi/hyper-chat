@@ -1,5 +1,5 @@
 {
-  "name": "chat-with-mongo",
+  "name": "hyper-chat",
   "version": "0.0.2",
   "private": true,
   "main": "node ./bin/www",
@@ -7,14 +7,17 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "debug": "set DEBUG=* & nodemon ./bin/www",
-    "test": "node test.js"
+    "test": "jest"
   },
+  "author": "Alpha Olomi",
+  "license": "ISC",
   "engines": {
     "node": "10.x"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "cookie-parser": "1.4.4",
+    "debug": "4.1.1",
     "ejs": "2.7.1",
     "express": "4.17.1",
     "express-session": "1.17.0",
@@ -25,16 +28,21 @@
     "morgan": "1.9.1",
     "node-env-file": "0.1.8",
     "socket.io": "2.3.0",
-    "validator": "11.1.0",
-    "debug": "4.1.1"
+    "validator": "11.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alphaolomi/chat-with-mongo"
+    "url": "https://github.com/alphaolomi/hyper-chat"
   },
-  "author": "Alpha Olomi",
-  "license": "ISC",
   "devDependencies": {
-    "nodemon": "1.19.4"
+    "jest": "^24.9.0",
+    "nodemon": "1.19.4",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
