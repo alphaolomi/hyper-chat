@@ -35,9 +35,9 @@
     "url": "https://github.com/alphaolomi/hyper-chat"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
+    "jest": "24.9.0",
     "nodemon": "1.19.4",
-    "supertest": "^4.0.2"
+    "supertest": "4.0.2"
   },
   "jest": {
     "testEnvironment": "node",
