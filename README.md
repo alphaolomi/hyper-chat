@@ -6,14 +6,6 @@
 
 A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.
 
-### 🚧Progress
-
-Chat IO is in development right now, Check it out at [https://chat-in-mongo.herokuapp.com/](https://chat-in-mongo.herokuapp.com/).
-
-### 🏁Status
-
-In development v.0.0.3
-
 ## 🚀Quick Start
 
 - Git fork/clone
