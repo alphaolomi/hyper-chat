@@ -1,6 +1,6 @@
 {
-  "name": "chat-with-mongo",
-  "description": "A simple chat application baked with Node and MongoDb",
-  "repository": "https://github.com/alphaolomi/chat-with-mongo",
+  "name": "hyperchat",
+  "description": "A minimal chat application baked with Node and MongoDb",
+  "repository": "https://github.com/alphaolomi/hyperchat",
   "image": "heroku/nodejs"
 }
