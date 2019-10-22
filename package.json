@@ -1,6 +1,6 @@
 {
   "name": "hyper-chat",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "private": true,
   "main": "node ./bin/www",
   "scripts": {
@@ -9,8 +9,18 @@
     "debug": "set DEBUG=* & nodemon ./bin/www",
     "test": "jest"
   },
-  "author": "Alpha Olomi",
-  "license": "ISC",
+  "author": "Alpha Olomi <hello@alphaolomi.com> (https://alphaolomi.com/)",
+  "license": "Apache-2.0",
+  "description": "A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.",
+  "keywords": [
+    "chat",
+    "chat-application",
+    "expressjs",
+    "mongo"
+  ],
+  "directories": {
+    "test": "tests"
+  },
   "engines": {
     "node": "10.x"
   },
@@ -30,15 +40,20 @@
     "socket.io": "2.3.0",
     "validator": "11.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alphaolomi/hyper-chat"
-  },
   "devDependencies": {
     "jest": "24.9.0",
     "nodemon": "1.19.4",
     "supertest": "4.0.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphaolomi/hyper-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alphaolomi/hyper-chat/issues",
+    "email": "hello@alphaolomi.com"
+  },
+  "homepage": "https://github.com/alphaolomi/hyper-chat#readme",
   "jest": {
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
