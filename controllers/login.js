@@ -1,9 +1,15 @@
 function showLoginForm(request, response) {
-  return response.status(200).type('html').render('login');
+  return response
+    .status(200)
+    .type('html')
+    .render('login');
 }
 
 function login(request, response) {
-  return response.status(200).type('html').render('home');
+  return response
+    .status(200)
+    .type('html')
+    .render('home');
 }
 
 module.exports.showLoginForm = showLoginForm;
