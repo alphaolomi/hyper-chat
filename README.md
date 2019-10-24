@@ -1,8 +1,4 @@
-# HyperChat 💬
-
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Maintain ][ico-maintain]][link-repo]
+# HyperChat 💬 [![Software License][ico-license]](LICENSE.md) [![Build Status][ico-travis]][link-travis] [![Maintain ][ico-maintain]][link-repo]
 
 A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.
 
