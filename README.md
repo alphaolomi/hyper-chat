@@ -62,6 +62,10 @@ If you discover any security related issues, please email [hello@alphaolomi.com]
 
 The Apache 2 License. Please see [License File](LICENSE) for more information.
 
+## Credits
+
+[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/0)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/0)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/1)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/1)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/2)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/2)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/3)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/3)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/4)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/4)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/5)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/5)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/6)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/6)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/7)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/7)
+
 [ico-license]: https://img.shields.io/badge/license-Apache2-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/alphaolomi/todo-in-vue/master.svg?style=flat-square
 [ico-maintain]: https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square
