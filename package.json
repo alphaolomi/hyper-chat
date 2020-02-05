@@ -32,16 +32,16 @@
     "express": "4.17.1",
     "express-session": "1.17.0",
     "http-errors": "1.7.3",
-    "mongodb": "3.4.1",
-    "mongoose": "5.8.4",
+    "mongodb": "3.5.2",
+    "mongoose": "5.8.11",
     "mongoose-unique-validator": "2.0.3",
     "morgan": "1.9.1",
     "node-env-file": "0.1.8",
     "socket.io": "2.3.0",
-    "validator": "12.1.0"
+    "validator": "12.2.0"
   },
   "devDependencies": {
-    "jest": "24.9.0",
+    "jest": "25.1.0",
     "nodemon": "2.0.2",
     "supertest": "4.0.2"
   },
