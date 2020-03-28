@@ -1,9 +1,9 @@
 const express = require('express');
 const env = require('node-env-file');
-const session = require('express-session');
-const createError = require('http-errors');
+// const session = require('express-session');
+// const createError = require('http-errors');
 const path = require('path');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const apiRoutes = require('./routes/api');
@@ -26,9 +26,9 @@ app.use(logger('dev', {skip: () => app.get('env') !== 'local'}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'secret', resave: true, saveUninitialized: true}));
+// app.use(session({secret: 'secret', resave: true, saveUninitialized: true}));
 
 
 app.use('/api/v1/', apiRoutes);
