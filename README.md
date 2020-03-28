@@ -1,75 +1,78 @@
-# HyperChat 💬 [![Software License][ico-license]](LICENSE.md) [![Build Status][ico-travis]][link-travis] [![Maintain ][ico-maintain]][link-repo]
+# Welcome to hyper-chat 👋 
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000)
+![Prerequisite](https://img.shields.io/badge/node-10.x-blue.svg)
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/alphaolomi/hyper-chat#readme)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/alphaolomi/hyper-chat/graphs/commit-activity)
+[![License: Apache--2.0](https://img.shields.io/github/license/alphaolomi/hyper-chat)](https://github.com/alphaolomi/hyper-chat/blob/master/LICENSE)
+[![Twitter: alphaolomi](https://img.shields.io/twitter/follow/alphaolomi.svg?style=social)](https://twitter.com/alphaolomi)
 
 A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.
 
-## 🚀Quick Start
+### 🏠 [Homepage](https://github.com/alphaolomi/hyper-chat#readme)
 
-- Git fork/clone
+### ✨ [Demo](https://github.com/alphaolomi/hyper-chat)
 
-```bash
-git clone https://github.com/alphaolomi/hyper-chat.git
-```
+## 🚀 Quick Start
 
-- Copy
+### Prerequisites
 
-```
-cp .env.example .env
-# add MongoURI in .env
-```
+- node 12.x
 
-- Install dependencies
+### Install
 
-```bash
+```sh
 yarn install
 ```
 
-- Serve on localhost:3000
+### Usage
 
-```bash
-yarn run dev
+```sh
+yarn run start
 ```
 
-- Run for production
+### Run tests
 
-```
-yarn start
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
-
-```bash
-$ yarn test
+```sh
+yarn run test
 ```
 
-## Contributing
+## Author
 
-Pull requests are welcome. Please see [CONTRIBUTING](./.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](./.github/CODE_OF_CONDUCT.md) for details.
+👤 **Alpha Olomi <hello@alphaolomi.com> (https://alphaolomi.com/)**
+
+* Website: https://alphaolomi.me
+* Twitter: [@alphaolomi](https://twitter.com/alphaolomi)
+* Github: [@alphaolomi](https://github.com/alphaolomi)
+* LinkedIn: [@alphaolomi](https://linkedin.com/in/alphaolomi)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check [issues page](https://github.com/alphaolomi/hyper-chat/issues). You can also take a look at the [contributing guide](https://github.com/alphaolomi/hyper-chat/blob/master/CONTRIBUTING.md).
 
 ## Security
 
-If you discover any security related issues, please email [hello@alphaolomi.com](mailto:hello@alphaolomi.com) instead of using the issue tracker.
+If you discover any security related issues, please email [alphaolomi@gmail.com](mailto:alphaolomi@gmail.com) instead of using the issue tracker.
 
-## Credits
-
-- **Alpha Olomi** [hello@alphaolomi.com](hello@alphaolomi.com)
-- [All Contributors][link-contributors]
-
-## License
-
-The Apache 2 License. Please see [License File](LICENSE) for more information.
 
 ## Credits
 
 [![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/0)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/0)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/1)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/1)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/2)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/2)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/3)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/3)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/4)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/4)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/5)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/5)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/6)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/6)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/7)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/7)
 
-[ico-license]: https://img.shields.io/badge/license-Apache2-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/alphaolomi/todo-in-vue/master.svg?style=flat-square
-[ico-maintain]: https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square
-[link-travis]: https://travis-ci.org/alphaolomi/wazo
-[link-repo]: https://github.com/alphaolomi/forum
-[link-author]: https://github.com/alphaolomi
-[link-contributors]: ../../contributors
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+[![support us](https://img.shields.io/badge/become-a patreon%20us-orange.svg?cacheSeconds=2592000)](https://www.patreon.com/alphaolomi)
+
+
+## 📝 License
+
+Copyright © 2020 [Alpha Olomi <hello@alphaolomi.com> (https://alphaolomi.com/)](https://github.com/alphaolomi).
+
+This project is [Apache--2.0](https://github.com/alphaolomi/hyper-chat/blob/master/LICENSE) licensed.
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
