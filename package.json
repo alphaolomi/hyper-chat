@@ -9,7 +9,7 @@
     "debug": "set DEBUG=* & nodemon ./bin/www",
     "test": "jest"
   },
-  "author": "Alpha Olomi <hello@alphaolomi.com> (https://alphaolomi.com/)",
+  "author": "Alpha Olomi <alphaolomi@gmail.com> (https://alphaolomi.me/)",
   "license": "Apache-2.0",
   "description": "A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.",
   "keywords": [
@@ -51,7 +51,7 @@
   },
   "bugs": {
     "url": "https://github.com/alphaolomi/hyper-chat/issues",
-    "email": "hello@alphaolomi.com"
+    "email": "alphaolomi@gmail.com"
   },
   "homepage": "https://github.com/alphaolomi/hyper-chat#readme",
   "jest": {
