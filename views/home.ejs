@@ -14,122 +14,41 @@
     }
   </style>
 </head>
-
 <body>
-
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-sm-12">
-        <h1 class="text-center">
-          Chat
-          <button id="clear" class="btn btn-danger ml-3 btn-sm">Clear</button>
-        </h1>
-        <div id="status"></div>
-        <div id="chat">
-          <input type="text" id="username" class="form-control" placeholder="Enter name...">
-          <br>
-          <div class="card">
-            <div id="messages" class="card-block">
-            </div>
-          </div>
-          <br>
-          <textarea id="textarea" class="form-control" placeholder="Enter message..."></textarea>
-        </div>
+  <div class="chat-container">
+    <header class="chat-header">
+      <h1><i class="fas fa-smile"></i> HyperChat</h1>
+      <a href="index.html" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name"></h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users"></ul>
       </div>
+      <div class="chat-messages"></div>
+    </main>
+    <div class="chat-form-container">
+      <form id="chat-form">
+        <input
+          id="msg"
+          type="text"
+          placeholder="Enter Message"
+          required
+          autocomplete="off"
+        />
+        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-
-  <script>
-    (function () {
-      const element = function (id) {
-        return document.getElementById(id);
-      };
-
-      // Get Elements
-      const status = element('status');
-      const messages = element('messages');
-      const textarea = element('textarea');
-      const username = element('username');
-      const clearBtn = element('clear');
-
-      // Set default status
-      const statusDefault = status.textContent;
-
-      const setStatus = function (s) {
-        // Set status
-        status.textContent = s;
-
-        if (s !== statusDefault) {
-          const delay = setTimeout(function () {
-            setStatus(statusDefault);
-          }, 4000);
-        }
-      };
-
-      // Connect to socket.io
-      const socket = io.connect('https://chat-in-mongo.herokuapp.com');
-
-      // Check for connection
-      if (socket !== undefined) {
-        console.log('Connected to socket...');
-
-        // Handle Output
-        socket.on('output', function (data) {
-          //console.log(data);
-          if (data.length) {
-            for (let x = 0; x < data.length; x++) {
-              // Build out message div
-              const message = document.createElement('div');
-              message.setAttribute('class', 'chat-message');
-              message.setAttribute('class', 'font-weight-light shadow p-1 m-2 bg-white rounded');
-              message.textContent = data[x].name + ": " + data[x].message;
-              messages.appendChild(message);
-              messages.insertBefore(message, messages.firstChild);
-            }
-          }
-        });
-
-        // Get Status From Server
-        socket.on('status', function (data) {
-          // get message status
-          setStatus((typeof data === 'object') ? data.message : data);
-
-          // If status is clear, clear text
-          if (data.clear) {
-            textarea.value = '';
-          }
-        });
-
-        // Handle Input
-        textarea.addEventListener('keydown', function (event) {
-          if (event.which === 13 && event.shiftKey === false) {
-            // Emit to server input
-            socket.emit('input', {
-              name: username.value,
-              message: textarea.value
-            });
-
-            event.preventDefault();
-          }
-        });
-
-        // Handle Chat Clear
-        clearBtn.addEventListener('click', function () {
-          socket.emit('clear');
-        });
-
-        // Clear Message
-        socket.on('cleared', function () {
-          messages.textContent = '';
-        });
-      }
-
-    })();
-  </script>
-
-
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+    integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
