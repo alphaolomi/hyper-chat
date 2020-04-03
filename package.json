@@ -28,12 +28,12 @@
     "bcrypt-nodejs": "0.0.3",
     "cookie-parser": "1.4.5",
     "debug": "4.1.1",
-    "ejs": "3.0.1",
+    "ejs": "3.0.2",
     "express": "4.17.1",
     "express-session": "1.17.0",
     "http-errors": "1.7.3",
     "mongodb": "3.5.5",
-    "mongoose": "5.9.6",
+    "mongoose": "5.9.7",
     "mongoose-unique-validator": "2.0.3",
     "morgan": "1.10.0",
     "node-env-file": "0.1.8",
@@ -41,7 +41,7 @@
     "validator": "13.0.0"
   },
   "devDependencies": {
-    "jest": "25.2.3",
+    "jest": "25.2.7",
     "nodemon": "2.0.2",
     "supertest": "4.0.2"
   },
