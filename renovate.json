@@ -2,14 +2,6 @@
   "separateMajorMinor": false,
   "extends": [
     ":preserveSemverRanges",
-    "group:all",
-    "schedule:monthly",
-    ":maintainLockFilesMonthly"
-  ],
-  "lockFileMaintenance": {
-    "extends": [
-      "group:all"
-    ],
-    "commitMessageAction": "Update"
-  }
+    "group:all"
+  ]
 }
