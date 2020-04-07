@@ -11,39 +11,31 @@
   },
   "author": "Alpha Olomi <alphaolomi@gmail.com> (https://alphaolomi.me/)",
   "license": "Apache-2.0",
-  "description": "A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.",
+  "description": "An elegeant realtime chat app with rooms that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.",
   "keywords": [
+    "realtime",
     "chat",
-    "chat-application",
-    "expressjs",
-    "mongo"
+    "expressjs"
   ],
   "directories": {
     "test": "tests"
   },
-  "engines": {
-    "node": "10.x"
-  },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "cookie-parser": "1.4.5",
-    "debug": "4.1.1",
-    "ejs": "3.0.1",
-    "express": "4.17.1",
-    "express-session": "1.17.0",
-    "http-errors": "1.7.3",
-    "mongodb": "3.5.5",
-    "mongoose": "5.9.6",
-    "mongoose-unique-validator": "2.0.3",
-    "morgan": "1.10.0",
-    "node-env-file": "0.1.8",
-    "socket.io": "2.3.0",
-    "validator": "13.0.0"
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "http-errors": "^1.7.3",
+    "moment": "^2.24.0",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "jest": "25.2.3",
-    "nodemon": "2.0.2",
-    "supertest": "4.0.2"
+    "jest": "^25.2.7",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   },
   "repository": {
     "type": "git",

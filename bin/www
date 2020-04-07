@@ -1,18 +1,26 @@
 #!/usr/bin/env node
-const app = require('../app');
-const debug = require('debug')('www');
-const http = require('http');
-const mongo = require('mongodb').MongoClient;
+const app = require("../app");
+const path = require("path");
+const debug = require("debug")("www");
+const http = require("http");
+const formatMessage = require("../utils/messages");
+const {
+  userJoin,
+  getCurrentUser,
+  userLeave,
+  getRoomUsers,
+} = require("../utils/users");
+require("dotenv").config({ path: path.resolve(process.cwd(), "../.env") });
 
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
 
 const server = http.createServer(app);
-const io = require('socket.io')(server);
+const io = require("socket.io")(server);
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 
 function normalizePort(val) {
   const port = parseInt(val, 10);
@@ -26,20 +34,20 @@ function normalizePort(val) {
 }
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -49,111 +57,59 @@ function onError(error) {
 
 function onListening() {
   const addr = server.address();
-  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
 }
 
-const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017/';
-const DB_NAME = process.env.DB_NAME || 'hyperchat';
-const DB_COLLECTION = process.env.DB_NAME || 'chats';
+const botName = "Hyper Bot";
 
-// noinspection JSIgnoredPromiseFromCall
-mongo.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, function(err, db) {
-  if (err) throw err;
-  console.log('MongoDB connected...');
+// Run when client connects
+io.on("connection", (socket) => {
+  socket.on("joinRoom", ({ username, room }) => {
+    const user = userJoin(socket.id, username, room);
 
+    socket.join(user.room);
 
+    // Welcome current user
+    socket.emit("message", formatMessage(botName, "Welcome to Hyper Chat!"));
 
+    // Broadcast when a user connects
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        "message",
+        formatMessage(botName, `${user.username} has joined the chat`)
+      );
 
-  const botName = 'HyperChat Bot';
-  io.on('connection', socket => {
-    const dbo = db.db(DB_NAME);
-    const chat = dbo.collection(DB_COLLECTION);
-
-    let sendStatus = function(s) {
-      socket.emit('status', s);
-    };
-
-    /* 🌎 */
-    chat
-      .find()
-      .limit(100)
-      .sort({ _id: 1 })
-      .toArray(function(err, res) {
-        if (err) throw err;
-        socket.emit('output', res);
-      });
-
-
-      socket.on('joinRoom', ({ username, room }) => {
-        const user = userJoin(socket.id, username, room);
-
-        socket.join(user.room);
-
-        // Welcome current user
-        socket.emit('message', formatMessage(botName, 'Welcome to ChatCord!'));
-
-        // Broadcast when a user connects
-        socket.broadcast
-          .to(user.room)
-          .emit(
-            'message',
-            formatMessage(botName, `${user.username} has joined the chat`)
-          );
-
-        // Send users and room info
-        io.to(user.room).emit('roomUsers', {
-          room: user.room,
-          users: getRoomUsers(user.room)
-        });
-      });
-
-      // Listen for chatMessage
-      socket.on('chatMessage', msg => {
-        const user = getCurrentUser(socket.id);
-
-        io.to(user.room).emit('message', formatMessage(user.username, msg));
-      });
-
-      // Runs when client disconnects
-      socket.on('disconnect', () => {
-        const user = userLeave(socket.id);
-
-        if (user) {
-          io.to(user.room).emit(
-            'message',
-            formatMessage(botName, `${user.username} has left the chat`)
-          );
-
-          // Send users and room info
-          io.to(user.room).emit('roomUsers', {
-            room: user.room,
-            users: getRoomUsers(user.room)
-          });
-        }
-      });
-
-      // Lsiten for input
-    socket.on('input', function(data) {
-      let name = data.name;
-      let message = data.message;
-      if (name === '' || message === '') {
-        sendStatus('Please enter a name and message');
-      } else {
-        chat.insertOne({ name: name, message: message }, function() {
-          io.emit('output', [data]);
-          sendStatus({
-            message: 'Message sent',
-            clear: true
-          });
-        });
-      }
+    // Send users and room info
+    io.to(user.room).emit("roomUsers", {
+      room: user.room,
+      users: getRoomUsers(user.room),
     });
+  });
 
-    socket.on('clear', function(data) {
-      let deleteMany = chat.deleteMany({}, function() {
-        socket.emit('cleared');
+  // Listen for chatMessage
+  socket.on("chatMessage", (msg) => {
+    const user = getCurrentUser(socket.id);
+
+    io.to(user.room).emit("message", formatMessage(user.username, msg));
+  });
+
+  // Runs when client disconnects
+  socket.on("disconnect", () => {
+    const user = userLeave(socket.id);
+
+    if (user) {
+      io.to(user.room).emit(
+        "message",
+        formatMessage(botName, `${user.username} has left the chat`)
+      );
+
+      // Send users and room info
+      io.to(user.room).emit("roomUsers", {
+        room: user.room,
+        users: getRoomUsers(user.room),
       });
-    });
+    }
   });
 });

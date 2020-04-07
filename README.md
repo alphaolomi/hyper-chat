@@ -14,10 +14,6 @@ A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal a
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- node 12.x
-
 ### Install
 
 ```sh
@@ -65,14 +61,10 @@ If you discover any security related issues, please email [alphaolomi@gmail.com]
 
 Give a ⭐️ if this project helped you!
 
-[![support us](https://img.shields.io/badge/become-a patreon%20us-orange.svg?cacheSeconds=2592000)](https://www.patreon.com/alphaolomi)
+[![support us](https://img.shields.io/badge/become-a-patreon%20us-orange.svg?cacheSeconds=2592000)](https://www.patreon.com/alphaolomi)
 
 
 ## 📝 License
 
-Copyright © 2020 [Alpha Olomi <hello@alphaolomi.com> (https://alphaolomi.com/)](https://github.com/alphaolomi).
 
-This project is [Apache--2.0](https://github.com/alphaolomi/hyper-chat/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+This project is [BSD](https://github.com/alphaolomi/hyper-chat/blob/master/LICENSE) licensed.
