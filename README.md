@@ -3,11 +3,10 @@
 ![Prerequisite](https://img.shields.io/badge/node-10.x-blue.svg)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/alphaolomi/hyper-chat#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/alphaolomi/hyper-chat/graphs/commit-activity)
-[![License: BSD](https://img.shields.io/github/license/alphaolomi/hyper-chat)](https://github.com/alphaolomi/hyper-chat/blob/master/LICENSE)
 [![Twitter: alphaolomi](https://img.shields.io/twitter/follow/alphaolomi.svg?style=social)](https://twitter.com/alphaolomi)
 [![Build Status](https://travis-ci.com/alphaolomi/hyper-chat.svg?branch=master)](https://travis-ci.com/alphaolomi/hyper-chat)
 
-A simple chat app that uses MongoDB and Socket.io, responsive and bare minimal application based on Express.
+A minimal realtime chat app with rooms that uses Socket.IO based on Express.
 
 ## Links
 
@@ -37,7 +36,7 @@ yarn run test
 
 ## Author
 
-*👤 **Alpha Olomi <hello@alphaolomi.com> (https://alphaolomi.com/)**
+*👤 **Alpha Olomi <alphaolomi@gmail.com> (https://alphaolomi.me/)**
 
 * Website: https://alphaolomi.me
 * Twitter: [@alphaolomi](https://twitter.com/alphaolomi)
