@@ -33,7 +33,7 @@
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "jest": "^25.2.7",
+    "jest": "^26.0.0",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   },
