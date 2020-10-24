@@ -12,7 +12,7 @@ A minimal realtime chat app with rooms that uses Socket.IO based on Express.
 
 | | |
 |--|--|
-| 🏠 [Homepage](https://github.com/alphaolomi/hyper-chat#readme) | ✨ [Demo](https://github.com/alphaolomi/hyper-chat) |
+| 🏠 [Homepage](https://github.com/alphaolomi/hyper-chat#readme) | ✨ [Demo](https://hyper-chat-app.herokuapp.com) |
 
 ## 🚀 Quick Start
 
