@@ -1,4 +1,4 @@
-# Welcome to hyper-chat 👋 
+# Welcome to hyper-chat 👋  [WORK IN PROGRESS]
 ![Version](https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000)
 ![Prerequisite](https://img.shields.io/badge/node-10.x-blue.svg)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/alphaolomi/hyper-chat#readme)
@@ -7,6 +7,11 @@
 [![Build Status](https://travis-ci.com/alphaolomi/hyper-chat.svg?branch=master)](https://travis-ci.com/alphaolomi/hyper-chat)
 
 A minimal realtime chat app with rooms that uses Socket.IO based on Express.
+
+## Road Map
+
+1. Make messages and rooms persiatnt
+2. Add authentication and user profiles
 
 ## Links
 
