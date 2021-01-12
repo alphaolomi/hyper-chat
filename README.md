@@ -1,4 +1,24 @@
-# Welcome to hyper-chat 👋  [WORK IN PROGRESS]
+<h1 align="center">🚧 WORK IN PROGRESS 🚧</h1>
+
+## Road Map
+
+1.  Make messages and rooms persiatnt
+2.  Add authentication and user profiles
+3.  typing feature
+4.  Generate invite links
+5.  Single usernames
+6.  24hr texts lifetime span*
+7.  Rate limit and helmet
+8.  Message limit
+9.  Message saniization
+10. small file upload
+11. 
+
+
+
+<br><br>
+
+# hyper-chat 👋  
 ![Version](https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000)
 ![Prerequisite](https://img.shields.io/badge/node-10.x-blue.svg)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/alphaolomi/hyper-chat#readme)
@@ -8,10 +28,6 @@
 
 A minimal realtime chat app with rooms that uses Socket.IO based on Express.
 
-## Road Map
-
-1. Make messages and rooms persiatnt
-2. Add authentication and user profiles
 
 ## Links
 
@@ -19,7 +35,7 @@ A minimal realtime chat app with rooms that uses Socket.IO based on Express.
 |--|--|
 | 🏠 [Homepage](https://github.com/alphaolomi/hyper-chat#readme) | ✨ [Demo](https://hyper-chat-app.herokuapp.com) |
 
-## 🚀 Quick Start
+## 🚀 Development
 
 ### Install
 
@@ -41,12 +57,8 @@ yarn run test
 
 ## Author
 
-*👤 **Alpha Olomi <alphaolomi@gmail.com> (https://alphaolomi.me/)**
+*👤 **Alpha Olomi <alphaolomi@gmail.com> (https://alphaolomi.me/)** * Twitter: [@alphaolomi](https://twitter.com/alphaolomi)
 
-* Website: https://alphaolomi.me
-* Twitter: [@alphaolomi](https://twitter.com/alphaolomi)
-* Github: [@alphaolomi](https://github.com/alphaolomi)
-* LinkedIn: [@alphaolomi](https://linkedin.com/in/alphaolomi)
 
 ## 🤝 Contributing
 
