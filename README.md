@@ -1,82 +1,94 @@
-<h1 align="center">🚧 WORK IN PROGRESS 🚧</h1>
-
-## Road Map
-
-1.  Make messages and rooms persiatnt
-2.  Add authentication and user profiles
-3.  typing feature
-4.  Generate invite links
-5.  Single usernames
-6.  24hr texts lifetime span*
-7.  Rate limit and helmet
-8.  Message limit
-9.  Message saniization
-10. small file upload
-11. 
 
 
+# Hyper
 
-<br><br>
+This project was generated using [Nx](https://nx.dev).
 
-# hyper-chat 👋  
-![Version](https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000)
-![Prerequisite](https://img.shields.io/badge/node-10.x-blue.svg)
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/alphaolomi/hyper-chat#readme)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/alphaolomi/hyper-chat/graphs/commit-activity)
-[![Twitter: alphaolomi](https://img.shields.io/twitter/follow/alphaolomi.svg?style=social)](https://twitter.com/alphaolomi)
-[![Build Status](https://travis-ci.com/alphaolomi/hyper-chat.svg?branch=master)](https://travis-ci.com/alphaolomi/hyper-chat)
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-A minimal realtime chat app with rooms that uses Socket.IO based on Express.
+🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+
+## Adding capabilities to your workspace
+
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+
+Below are our core plugins:
+
+- [React](https://reactjs.org)
+  - `npm install --save-dev @nrwl/react`
+- Web (no framework frontends)
+  - `npm install --save-dev @nrwl/web`
+- [Angular](https://angular.io)
+  - `npm install --save-dev @nrwl/angular`
+- [Nest](https://nestjs.com)
+  - `npm install --save-dev @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `npm install --save-dev @nrwl/express`
+- [Node](https://nodejs.org)
+  - `npm install --save-dev @nrwl/node`
+
+There are also many [community plugins](https://nx.dev/nx-community) you could add.
+
+## Generate an application
+
+Run `nx g @nrwl/react:app my-app` to generate an application.
+
+> You can use any of the plugins above to generate applications as well.
+
+When using Nx, you can create multiple applications and libraries in the same workspace.
+
+## Generate a library
+
+Run `nx g @nrwl/react:lib my-lib` to generate a library.
+
+> You can also use any of the plugins above to generate libraries as well.
+
+Libraries are shareable across libraries and applications. They can be imported from `@hyper/mylib`.
+
+## Development server
+
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+
+## Build
+
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+
+Run `nx affected:test` to execute the unit tests affected by a change.
+
+## Running end-to-end tests
+
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+
+## Understand your workspace
+
+Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+
+## Further help
+
+Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 
-## Links
 
-| | |
-|--|--|
-| 🏠 [Homepage](https://github.com/alphaolomi/hyper-chat#readme) | ✨ [Demo](https://hyper-chat-app.herokuapp.com) |
+## ☁ Nx Cloud
 
-## 🚀 Development
+### Computation Memoization in the Cloud
 
-### Install
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
 
-```sh
-yarn install
-```
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
 
-### Usage
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
-```sh
-yarn run start
-```
-
-### Run tests
-
-```sh
-yarn run test
-```
-
-## Author
-
-*👤 **Alpha Olomi <alphaolomi@gmail.com> (https://alphaolomi.me/)** * Twitter: [@alphaolomi](https://twitter.com/alphaolomi)
-
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-Feel free to check [issues page](https://github.com/alphaolomi/hyper-chat/issues). You can also take a look at the [contributing guide](https://github.com/alphaolomi/hyper-chat/blob/master/CONTRIBUTING.md).
-
-## Security
-
-If you discover any security related issues, please email [alphaolomi@gmail.com](mailto:alphaolomi@gmail.com) instead of using the issue tracker.
-
-
-## Credits
-
-[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/0)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/0)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/1)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/1)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/2)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/2)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/3)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/3)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/4)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/4)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/5)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/5)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/6)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/6)[![](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/images/7)](https://sourcerer.io/fame/alphaolomi/alphaolomi/hyper-chat/links/7)
-
-
-
-## 📝 License
-
-This project is [BSD](https://github.com/alphaolomi/hyper-chat/blob/master/LICENSE) licensed.
+Visit [Nx Cloud](https://nx.app/) to learn more.

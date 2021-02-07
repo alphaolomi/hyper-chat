@@ -1,7 +1,0 @@
-{
-  "separateMajorMinor": false,
-  "extends": [
-    ":preserveSemverRanges",
-    "group:all"
-  ]
-}

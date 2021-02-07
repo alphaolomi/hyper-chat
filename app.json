@@ -1,6 +1,0 @@
-{
-  "name": "hyperchat",
-  "description": "A minimal chat application baked with Node and MongoDb",
-  "repository": "https://github.com/alphaolomi/hyperchat",
-  "image": "heroku/nodejs"
-}
