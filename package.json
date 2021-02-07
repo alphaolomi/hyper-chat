@@ -49,11 +49,12 @@
     "@types/react": "16.9.56",
     "@types/react-dom": "16.9.9",
     "@types/react-router-dom": "5.1.6",
+    "@types/socket.io": "^2.1.13",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "babel-jest": "26.2.2",
     "cypress": "^6.0.1",
-    "dotenv": "6.2.0",
+    "dotenv": "^8.2.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-cypress": "^2.10.3",
@@ -69,11 +70,17 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "debug": "^4.3.1",
     "document-register-element": "1.13.1",
     "express": "4.17.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-icons": "^4.2.0",
     "react-router-dom": "5.2.0",
+    "socket.io": "^3.1.1",
+    "socket.io-client": "^3.1.1",
     "tslib": "^2.0.0"
   }
 }
