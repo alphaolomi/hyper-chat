@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSmile } from 'react-icons/fa';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <div className="join-container">
@@ -8,9 +8,10 @@ export default function Home() {
         <h1>
           <FaSmile /> HyperChat
         </h1>
+        <Link to="/about">About</Link>
       </header>
       <main className="join-main">
-        <form action="chat.html">
+        <form action="chat">
           <div className="form-control">
             <label htmlFor="username">Username</label>
             <input

@@ -7,9 +7,6 @@ const Tick = () => {
   const [d, setD] = useState('');
 
   useEffect(() => {
-    // const manager = new Manager();
-    // const socket = manager.socket("");
-    // todo close socket
     const socket = io("http://localhost:3333", {})
     socket.on('tick', (data) => {
       setResponse(data);

@@ -13,6 +13,7 @@ export const onMessage = (io) => {
   io.on('connection', (socket) => {
     socket.on('joinRoom', ({ username, room }) => {
       const user = userJoin(socket.id, username, room);
+      console.log(`joined ${username} on  ${room}`);
 
       socket.join(user.room);
 
