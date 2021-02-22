@@ -46,9 +46,9 @@ export const getRoomUsers = (room: string) => {
   return users.filter((user) => user.room === room);
 };
 
-// export default {
-//   userJoin,
-//   getCurrentUser,
-//   userLeave,
-//   getRoomUsers,
-// };
+export default {
+  userJoin,
+  getCurrentUser,
+  userLeave,
+  getRoomUsers,
+};
