@@ -8,9 +8,9 @@ import {
   FormEvent,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaCommentAlt, FaPaperPlane, FaComment } from 'react-icons/fa';
+import { FaUsers, FaCommentAlt, FaPaperPlane, FaComment } from 'react-icons/fa';
 import { SocketContext } from '../context/socket';
-// import { Link } from 'react-router-dom';
+
 interface IUser {
   id: string;
   username: string;
@@ -28,17 +28,22 @@ const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
-const Users = ({ users }) => {
+const Users = ({ users }:{users:Array<IUser>}) => {
   return (
-    <ul id="users">
-      {users.map((user) => (
-        <li>{user.username}</li>
-      ))}
-    </ul>
+    <>
+      <h3>
+        <FaUsers size={18} /> Users
+      </h3>
+      <ul id="users">
+        {users.map((user) => (
+          <li key={user.username}>{user.username}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 
-const Message = ({ username, text, time }) => {
+const Message = ({ username, text, time }:{username:string, text:string, time:string}) => {
   return (
     <>
       <p className="meta">
@@ -49,7 +54,7 @@ const Message = ({ username, text, time }) => {
   );
 };
 
-const Messages = ({ messages }) => {
+const Messages = ({ messages }: {messages:Array<IMessage>}) => {
   return (
     <div className="chat-messages">
       {messages.map((message) => (
@@ -65,51 +70,46 @@ const Messages = ({ messages }) => {
 };
 
 const Chat = () => {
+  const query = useQuery();
   const inputMessageRef = useRef(null);
   const socket = useContext(SocketContext);
 
   const [message, setMessage] = useState('');
-  // const [joined, setJoined] = useState(false);
 
-  const [room, setRoom] = useState('');
-  const [username, setUserName] = useState('');
+  const [room, setRoom] = useState(query.get('room') || '');
+  const [username, setUserName] = useState(query.get('username') || '');
 
   const [users, setUsers] = useState<Array<IUser>>([]);
-
   const [messages, setMessages] = useState<Array<IMessage>>([]);
-
-  const query = useQuery();
 
   // Emit message to server
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-
-    // Emit message to server
     socket.emit('chatMessage', message);
-    // Clear input
     setMessage('');
-    // focus Input
     inputMessageRef.current.focus();
   };
 
-  useEffect(() => {
-    // as soon as the component is mounted, do the following tasks:
-    setUserName(query.get('username'));
-    setRoom(query.get('room'));
+  const handleDisconnect = useCallback(() => {
+    socket.emit('disconnect');
+  }, []);
 
+  useEffect(() => {
     // emit joinRoom event
     socket.emit('joinRoom', { username, room });
 
     // Get room and users
     socket.on('roomUsers', ({ room, users }) => {
-      setRoom(room);
+      // setRoom(room);
       setUsers([...users]);
     });
 
     // Message from server
-    socket.on('message', (msg: IMessage) => {
-      // console.log(message);
-      setMessages([...messages, msg]);
+    socket.on('message', (message) => {
+      console.log(message);
+
+      setMessages([...messages,message]);
+      console.log(messages);
 
       // Scroll down
       // chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -117,9 +117,9 @@ const Chat = () => {
 
     return () => {
       // before the component is destroyed
-      // unbind all event handlers used in this component
+      handleDisconnect()
     };
-  }, [socket, room, messages, username, query]);
+  }, []);
 
   return (
     <div className="chat-container">
@@ -134,25 +134,15 @@ const Chat = () => {
       </header>
       <main className="chat-main">
         <div className="chat-sidebar">
-
           <h3>
             <FaComment size={16} /> Room Name:
           </h3>
           <h2 id="room-name"> {room}</h2>
 
-          <h3>
-            <i className="fas fa-users" /> Users
-          </h3>
-          {/*  */}
-          {/* <ul id="users" /> */}
           <Users users={users} />
-          {/*  */}
         </div>
 
-        {/*  */}
-        {/* <div className="chat-messages" /> */}
         <Messages messages={messages} />
-        {/*  */}
       </main>
       <div className="chat-form-container">
         <form id="chat-form" onSubmit={handleFormSubmit}>

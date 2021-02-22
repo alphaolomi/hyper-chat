@@ -8,12 +8,13 @@ import {
 
 export const onMessage = (io) => {
   const botName = 'Hyper Bot';
+  let u = 0;
 
   // Run when client connects
   io.on('connection', (socket) => {
-    socket.on('joinRoom', ({ username, room }) => {
+    socket.on('joinRoom', ({ username, room }:{username:string,room:string}) => {
       const user = userJoin(socket.id, username, room);
-      console.log(`joined ${username} on  ${room}`);
+      console.log(`joined ${username} on  ${room} ${u++}`);
 
       socket.join(user.room);
 
@@ -36,7 +37,7 @@ export const onMessage = (io) => {
     });
 
     // Listen for chatMessage
-    socket.on('chatMessage', (msg) => {
+    socket.on('chatMessage', (msg:string) => {
       const user = getCurrentUser(socket.id);
 
       io.to(user.room).emit('message', formatMessage(user.username, msg));
