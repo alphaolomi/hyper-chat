@@ -53,8 +53,8 @@ const Message = ({ username, text, time }:{username:string, text:string, time:st
     </>
   );
 };
-
-const Messages = ({ messages }: {messages:Array<IMessage>}) => {
+// : {messages:Array<IMessage>}
+const Messages = ({ messages , refer }) => {
   return (
     <div className="chat-messages">
       {messages.map((message) => (
@@ -65,6 +65,7 @@ const Messages = ({ messages }: {messages:Array<IMessage>}) => {
           time={message.time}
         />
       ))}
+      <div ref={refer} />
     </div>
   );
 };
@@ -72,6 +73,9 @@ const Messages = ({ messages }: {messages:Array<IMessage>}) => {
 const Chat = () => {
   const query = useQuery();
   const inputMessageRef = useRef(null);
+  // const messagesRef = useRef(nul l);
+  const messagesEndRef = useRef(null);
+
   const socket = useContext(SocketContext);
 
   const [message, setMessage] = useState('');
@@ -90,6 +94,10 @@ const Chat = () => {
     inputMessageRef.current.focus();
   };
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
   const handleDisconnect = useCallback(() => {
     socket.emit('disconnect');
   }, []);
@@ -100,7 +108,7 @@ const Chat = () => {
 
     // Get room and users
     socket.on('roomUsers', ({ room, users }) => {
-      setRoom(room);
+      // setRoom(room);
       setUsers([...users]);
     });
 
@@ -108,7 +116,8 @@ const Chat = () => {
     socket.on('message', (message:IMessage) => {
       setMessages(messages => [...messages,...[message]]);
       // Scroll down
-      // chatMessages.scrollTop = chatMessages.scrollHeight;
+      scrollToBottom()
+      // messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     });
 
     return () => {
@@ -124,9 +133,9 @@ const Chat = () => {
           <FaCommentAlt size={24} />
           HyperChat
         </h1>
-        <a href="index.html" className="btn">
+        <button className="btn">
           Leave Room
-        </a>
+        </button>
       </header>
       <main className="chat-main">
         <div className="chat-sidebar">
@@ -138,7 +147,8 @@ const Chat = () => {
           <Users users={users} />
         </div>
 
-        <Messages messages={messages} />
+        <Messages messages={messages} refer={messagesEndRef}/>
+
       </main>
       <div className="chat-form-container">
         <form id="chat-form" onSubmit={handleFormSubmit}>
