@@ -1,13 +1,13 @@
 import app from './app/app';
-import debug from 'debug';
+import * as debug from 'debug';
 debug('www');
 import { onMessage } from './app/controllers/messages';
 
-const port = process.env.port || 3333;
+const port = process.env.PORT || 3000;
 app.set('port', port);
 
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
+  console.log(`🚀 Listening at http://localhost:${port}`);
 });
 
 import { Server } from 'socket.io';

@@ -40,3 +40,6 @@ Thumbs.db
 
 # JetBrains
 .idea/
+
+
+.env
