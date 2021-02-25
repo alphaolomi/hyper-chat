@@ -100,17 +100,13 @@ const Chat = () => {
 
     // Get room and users
     socket.on('roomUsers', ({ room, users }) => {
-      // setRoom(room);
+      setRoom(room);
       setUsers([...users]);
     });
 
     // Message from server
-    socket.on('message', (message) => {
-      console.log(message);
-
-      setMessages([...messages,message]);
-      console.log(messages);
-
+    socket.on('message', (message:IMessage) => {
+      setMessages(messages => [...messages,...[message]]);
       // Scroll down
       // chatMessages.scrollTop = chatMessages.scrollHeight;
     });
