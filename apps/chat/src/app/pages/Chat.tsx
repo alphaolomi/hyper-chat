@@ -7,7 +7,7 @@ import {
   useState,
   FormEvent,
 } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { FaUsers, FaCommentAlt, FaPaperPlane, FaComment } from 'react-icons/fa';
 import { SocketContext } from '../context/socket';
 
@@ -28,7 +28,7 @@ const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
-const Users = ({ users }:{users:Array<IUser>}) => {
+const Users = ({ users }: { users: Array<IUser> }) => {
   return (
     <>
       <h3>
@@ -43,7 +43,15 @@ const Users = ({ users }:{users:Array<IUser>}) => {
   );
 };
 
-const Message = ({ username, text, time }:{username:string, text:string, time:string}) => {
+const Message = ({
+  username,
+  text,
+  time,
+}: {
+  username: string;
+  text: string;
+  time: string;
+}) => {
   return (
     <>
       <p className="meta">
@@ -54,7 +62,7 @@ const Message = ({ username, text, time }:{username:string, text:string, time:st
   );
 };
 // : {messages:Array<IMessage>}
-const Messages = ({ messages , refer }) => {
+const Messages = ({ messages, refer }) => {
   return (
     <div className="chat-messages">
       {messages.map((message) => (
@@ -75,6 +83,7 @@ const Chat = () => {
   const inputMessageRef = useRef(null);
   // const messagesRef = useRef(nul l);
   const messagesEndRef = useRef(null);
+  const history = useHistory();
 
   const socket = useContext(SocketContext);
 
@@ -95,11 +104,12 @@ const Chat = () => {
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleDisconnect = useCallback(() => {
     socket.emit('disconnect');
+    history.push('/');
   }, []);
 
   useEffect(() => {
@@ -113,16 +123,16 @@ const Chat = () => {
     });
 
     // Message from server
-    socket.on('message', (message:IMessage) => {
-      setMessages(messages => [...messages,...[message]]);
+    socket.on('message', (message: IMessage) => {
+      setMessages((messages) => [...messages, ...[message]]);
       // Scroll down
-      scrollToBottom()
+      scrollToBottom();
       // messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     });
 
     return () => {
       // before the component is destroyed
-      handleDisconnect()
+      handleDisconnect();
     };
   }, []);
 
@@ -133,7 +143,7 @@ const Chat = () => {
           <FaCommentAlt size={24} />
           HyperChat
         </h1>
-        <button className="btn">
+        <button className="btn" onClick={handleDisconnect}>
           Leave Room
         </button>
       </header>
@@ -147,8 +157,7 @@ const Chat = () => {
           <Users users={users} />
         </div>
 
-        <Messages messages={messages} refer={messagesEndRef}/>
-
+        <Messages messages={messages} refer={messagesEndRef} />
       </main>
       <div className="chat-form-container">
         <form id="chat-form" onSubmit={handleFormSubmit}>
