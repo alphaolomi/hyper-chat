@@ -13,6 +13,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/alphaolomi/hyper-chat/graphs/commit-activity)
 [![Twitter: alphaolomi](https://img.shields.io/twitter/follow/alphaolomi.svg?style=social)](https://twitter.com/alphaolomi)
 [![Build Status](https://travis-ci.com/alphaolomi/hyper-chat.svg?branch=master)](https://travis-ci.com/alphaolomi/hyper-chat)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Falphaolomi%2Fhyper-chat&count_bg=%2379C83D&title_bg=%23555555&icon=codeigniter.svg&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
 
 <p align="center">A minimal realtime chat app with rooms, Built with SocketIO and on Expressjs.</p>
 
